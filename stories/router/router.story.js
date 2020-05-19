@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import RouterSample from '../samples/router'
-import RouterSampleCustomLink from '../samples/router-custom-link'
-import RouterSampleCodeSplit from '../samples/router-code-split'
+import RouterSample from './basic'
+import RouterSampleCustomLink from './custom-link'
+import RouterSampleCodeSplit from './code-split'
 
 storiesOf('React-Router-V4', module)
   .add('basic', () => (

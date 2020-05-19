@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import BaisicMotionSample from '../samples/react-motion/basic'
-import StaggeredMotion from '../samples/react-motion/StaggeredMotion'
-import TransitionMotion from '../samples/react-motion/TransitionMotion'
+import BaisicMotionSample from './basic'
+import StaggeredMotion from './StaggeredMotion'
+import TransitionMotion from './TransitionMotion'
 
 
 storiesOf('react-motion', module)

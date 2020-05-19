@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import BasicSample from '../samples/slate/basic'
-import PluginSample from '../samples/slate/plugins'
-import HtmlSample from '../samples/slate/html'
-import HighlightSample from '../samples/slate/code-highlight'
+import BasicSample from './basic'
+import PluginSample from './plugins'
+import HtmlSample from './html'
+import HighlightSample from './code-highlight'
 
 storiesOf('slate', module)
   .add('basic', () => (

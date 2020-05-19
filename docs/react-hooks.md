@@ -3,7 +3,7 @@ Hook 就是 JavaScript 函数，但是使用它们会有两个额外的规则：
 - 只能在 React 的函数组件中调用 Hook。不要在其他 JavaScript 函数中调用。（还有一个地方可以调用 Hook —— 就是自定义的 Hook 中，我们稍后会学习到。）
 
 ## use effect
-### `componentDieUpdate` 
+### `componentDidUpdate` 
 类似：
 ```js
 useEffect(() => {
