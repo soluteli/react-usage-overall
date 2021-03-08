@@ -12,13 +12,14 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.4.3",
-    "@storybook/react": "^5.3.18",
+    "@storybook/react": "^6.1.21",
     "babel-loader": "^8.0.5"
   },
   "dependencies": {
     "@loadable/component": "^5.7.0",
     "antd": "^3.18.2",
     "classnames": "^2.2.6",
+    "core-js": "^3.9.1",
     "formik": "^1.5.8",
     "immutable": "^4.0.0-rc.12",
     "rc-color-picker": "^1.2.6",
