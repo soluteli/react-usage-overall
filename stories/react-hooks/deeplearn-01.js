@@ -1,79 +1,139 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, Component, useCallback } from "react";
 // useEffect 完全指南 https://github.com/dt-fe/weekly/blob/v2/096.%E7%B2%BE%E8%AF%BB%E3%80%8AuseEffect%20%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E3%80%8B.md
 // https://cloud.tencent.com/developer/article/1392973
-const CaputureUseState = () => {
-  const [temp, setTemp] = React.useState(5);
+
+class ClassComponent extends Component {
+  state = {
+    value: 1
+  }
+
+  log = () => {
+    setTimeout(() => {
+      alert(this.state.value)
+    }, 1000);
+  }
+
+  render () {
+    const {value} = this.state
+    return (
+      <div>
+        <p>ClassComponent</p>
+        <div>value: {value}</div>
+        <button onClick={() => this.setState({value: value + 1})}>add</button>
+        <br/>
+        <button onClick={this.log}>alert</button>
+      </div>
+    )
+  }
+}
+
+const FunctionComponent = () => {
+  const [value, setValue] = useState(1)
+  const countRef = useRef(value)
+
+  useEffect(() => {
+    countRef.current = value
+  }, [value])
 
   const log = () => {
-    console.log('wait')
     setTimeout(() => {
-      console.log("现在 temp =", temp);
-    });
-  };
+      alert(countRef.current)
+    }, 1000);
+  }
 
   return (
     <div>
-      <p>CaputureUseState</p>
-      <span>{temp}</span>
-      <button onClick={() => {
-        log();
-        setTemp(temp + 1);
-        // 3 秒前 temp = 5，现在 temp = 5
-      }}>点击</button>
-      <hr />
+      <p>FunctionComponent</p>
+      <div>value: {value}</div>
+      <button onClick={() => setValue(value + 1)}>add</button>
+      <br/>
+      <button onClick={log}>alert</button>
     </div>
-  );
-};
+  )
+}
 
-const CaputureUseEffect = () => {
-  const [count, setCount] = useState(0);
+const Counter = () => {
+  const [value, setValue] = useState(0)
 
   useEffect(() => {
-    // capture value 获取到本次 render 时的值
-    console.log(`CaputureUseEffect You clicked ${count} times`);
-  });
-
+    const timer = setInterval(() => {
+      console.log('tick', value+1)
+      setValue(value + 1)
+    }, 1000);
+    return () => {
+      console.log('clear')
+      clearInterval(timer)
+    }
+  }, [value])
+  console.log('render')
   return (
     <div>
-      <p>CaputureUseState</p>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-      <hr />
+      <p>Counter</p>
+      <div>count: {value}</div>
     </div>
-  );
-};
+  )
+}
 
-const CaputureUseREF = () => {
-  const [count, setCount] = useState(0);
-  const latestCount = useRef(count);
+const CounterCb = () => {
+  const [value, setValue] = useState(0)
 
   useEffect(() => {
-    // Set the mutable latest value
-    // ⚠️下面的注释需要注意， 每次 render 都用的时第一次 render 的引用
-    // latestCount.current = count;
-    setTimeout(() => {
-      // Read the mutable latest value
-      console.log(`CaputureUseREF You clicked ${latestCount.current} times`);
-    });
-  });
-
+    const timer = setInterval(() => {
+      // 回调函数的最新值
+      setValue(value => {
+        const v = value + 1
+        console.log('count:', v)
+        return v
+      })
+    }, 1000);
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
   return (
     <div>
-      <p>CaputureUseREF</p>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-      <hr />
+      <p>Counter</p>
+      <div>count: {value}</div>
     </div>
-  );
-};
+  )
+}
+
+const CounterUseCb = () => {
+  const [value, setValue] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      // 回调函数的最新值
+      setValue(value => {
+        const v = value + 1
+        console.log('count:', v)
+        return v
+      })
+    }, 1000);
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
+  return (
+    <div>
+      <p>Counter</p>
+      <div>count: {value}</div>
+    </div>
+  )
+}
 
 
 const App = () => {
   return (
     <div>
-      <CaputureUseState />
+      {/* <CaputureUseState />
       <CaputureUseEffect />
-      <CaputureUseREF />
+      <CaputureUseREF /> */}
+      {/* <ClassComponent /> */}
+      {/* <hr></hr> */}
+      {/* <FunctionComponent /> */}
+      <Counter />
+      {/* <CounterCb /> */}
     </div>
   );
 };
