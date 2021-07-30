@@ -2,6 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 
 import BasicSample from './basic'
+import DraggableTree from './draggableTree'
 
 storiesOf("React-dnd", module)
-  .add("basic", () => <BasicSample />)
+  .add("draggableTree", () => <DraggableTree />)
+  // .add("basic", () => <BasicSample />)
