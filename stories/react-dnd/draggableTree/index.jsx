@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 import { HTML5Backend } from 'react-dnd-html5-backend'
-import { DndProvider, useDrag } from 'react-dnd'
+import { DndProvider, useDrag, useDrop } from 'react-dnd'
+import cz from "classnames";
+import './style.css'
+import { useTreeNodeDrop } from './useTreeNodeDrop';
 
 const treeData = [
   {
@@ -27,34 +30,67 @@ const DRAG_TYPE = 'DRAG_TYPE'
 
 const TreeNode = (props) => {
   const { id, label, children } = props.data
-
   const [collected, drag, dragPreview] = useDrag(() =>{
     return {
       type: DRAG_TYPE,
       item: { id },
       collect: (monitor) => {
-        console.log('monitor', monitor)
+        // console.log('monitor', monitor)
         return {
-          isDragging: monitor.isDragging()
+          isDragging: monitor.isDragging(),
+          // startPointer: monitor.getInitialClientOffset(),
+          // startRect: monitor.getInitialSourceClientOffset(),
+          // latestPointer: monitor.getClientOffset(),
+          // deltaPointer: monitor.getDifferenceFromInitialOffset(),
+          // deltaRect: monitor.getSourceClientOffset()
         }
       }
     }
   })
 
-  console.log('collected', collected.isDragging)
+  const doUnshiftDrop = (item) => {
+    console.log('doUnshiftDrop', item, id)
+  }
+  const doPushDrop = (item) => {
+    console.log('doPushDrop', item, id)
+  }
+  const doAppendDrop = (item) => {
+    console.log('doAppendDrop', item, id)
+  }
+  
+  
+  const [, dropTopRef, dropTopOver] = useTreeNodeDrop(id, doUnshiftDrop)
+  const [, dropContentRef, dropContentOver] = useTreeNodeDrop(id, doPushDrop)
+  const [, dropBottomRef, dropBottomOver] = useTreeNodeDrop(id, doAppendDrop)
+
 
   return (
     <div className="tree-node">
-      <p className="tree-node_label"
-        ref={drag}
-        >{label}</p>
-      <div className="tree-node_children">
-        {
-          children && children.map(item => {
-            return <TreeNode key={item.id} data={item}  />
-          })
-        }
+      <div className="tree-node_container">
+        <div ref={dropContentRef} className={cz({
+          'active': dropContentOver
+        })}>
+          <p className="tree-node_label"
+            ref={drag}
+            >{label}</p>
+        </div>
+        <div className={cz("tree-node_top", {
+          active: dropTopOver
+        })} ref={dropTopRef}></div>
+        <div className={cz("tree-node_bottom", {
+          active: dropBottomOver
+        })} ref={dropBottomRef}></div>
       </div>
+      {
+        children && children.length && 
+        <div className="tree-node_children">
+          {
+            children.map(item => {
+              return <TreeNode key={item.id} data={item}  />
+            })
+          }
+        </div>
+      }
     </div>
   )
 }

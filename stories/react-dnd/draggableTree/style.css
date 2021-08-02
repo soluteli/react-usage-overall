@@ -1,0 +1,28 @@
+.tree-node_container {
+  position: relative;
+}
+
+.tree-node_top {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  top: -2px;
+  
+}
+
+.tree-node_bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  bottom: -2px;
+}
+
+.active {
+  background-color: rgb(159, 192, 235);
+}
+
+.tree-node_children {
+  margin-left: 20px;
+}
