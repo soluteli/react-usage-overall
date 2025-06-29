@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "start-storybook",
-    "start": "npm run dev"
+    "start": "pnpm run dev"
   },
   "keywords": [],
   "author": "",
@@ -18,10 +18,13 @@
   "dependencies": {
     "@loadable/component": "^5.7.0",
     "antd": "^3.18.2",
+    "axios": "^1.10.0",
+    "axios-mock-adapter": "^2.1.0",
     "classnames": "^2.2.6",
     "core-js": "^3.9.1",
     "formik": "^1.5.8",
     "immutable": "^4.0.0-rc.12",
+    "prismjs": "^1.30.0",
     "rc-color-picker": "^1.2.6",
     "rc-field-form": "0.0.0-alpha.22",
     "react": "^16.14.0",
