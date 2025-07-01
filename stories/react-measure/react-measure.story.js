@@ -1,12 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import BaisicSample from './basic';
 
-import BaisicSample from './basic'
+export default {
+  title: 'react-measure',
+};
 
-
-storiesOf('react-measure', module)
-  .add('basic', () => (
-    <BaisicSample />
-  ))
+export const Basic = () => <BaisicSample />;
 
 

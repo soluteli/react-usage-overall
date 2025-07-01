@@ -1,7 +1,8 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import BasicSample from './basic';
 
-import BasicSample from './basic'
+export default {
+  title: 'React-datasheet',
+};
 
-storiesOf("React-datasheet", module)
-  .add("basic", () => <BasicSample />)
+export const Basic = () => <BasicSample />;

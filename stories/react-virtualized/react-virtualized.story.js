@@ -1,15 +1,12 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import CollectionSample from './collections';
+import GridSample from './grid';
 
-import CollectionSample from './collections'
-import GridSample from './grid'
+export default {
+  title: 'react-virtualized',
+};
 
-storiesOf('react-virtualized', module)
-  .add('collection', () => (
-    <CollectionSample />
-  ))
-  .add('grid', () => (
-    <GridSample />
-  ))
+export const Collection = () => <CollectionSample />;
+export const Grid = () => <GridSample />;
 
 

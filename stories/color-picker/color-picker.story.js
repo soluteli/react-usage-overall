@@ -1,11 +1,8 @@
-
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import ColorPickerSample from '.';
 
-import ColorPickerSample from '.'
+export default {
+  title: '颜色选择',
+};
 
-storiesOf('颜色选择', module)
-  .add('rc-color-picker', () => (
-    <ColorPickerSample />
-  ))
-
+export const RcColorPicker = () => <ColorPickerSample />;

@@ -1,9 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import BasicSample from './basic';
+import BasicSample1 from './basic1';
 
-import BasicSample from './basic'
-import BasicSample1 from './basic1'
+export default {
+  title: 'Formik',
+};
 
-storiesOf("Formik", module)
-  .add("basic", () => <BasicSample />)
-  .add("basic1", () => <BasicSample1 />)
+export const Basic = () => <BasicSample />;
+export const Basic1 = () => <BasicSample1 />;

@@ -1,7 +1,8 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import Demo from './Demo';
 
-import Demo from "./Demo";
+export default {
+  title: '射',
+};
 
-storiesOf('射', module)
-  .add('basic', () => <Demo />)
+export const Basic = () => <Demo />;

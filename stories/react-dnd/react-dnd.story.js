@@ -1,9 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import BasicSample from './basic';
+import DraggableTree from './draggableTree';
 
-import BasicSample from './basic'
-import DraggableTree from './draggableTree'
+export default {
+  title: 'React-dnd',
+};
 
-storiesOf("React-dnd", module)
-  .add("draggableTree", () => <DraggableTree />)
-  // .add("basic", () => <BasicSample />)
+export const DraggableTreeStory = () => <DraggableTree />;
+// export const Basic = () => <BasicSample />;

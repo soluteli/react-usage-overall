@@ -1,18 +1,13 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import RouterSample from './basic';
+import RouterSampleCustomLink from './custom-link';
+import RouterSampleCodeSplit from './code-split';
 
-import RouterSample from './basic'
-import RouterSampleCustomLink from './custom-link'
-import RouterSampleCodeSplit from './code-split'
+export default {
+  title: 'React-Router-V4',
+};
 
-storiesOf('React-Router-V4', module)
-  .add('basic', () => (
-    <RouterSample />
-  ))
-  .add('customlink', () => (
-    <RouterSampleCustomLink />
-  ))
-  .add('code-split', () => (
-    <RouterSampleCodeSplit />
-  ))
+export const Basic = () => <RouterSample />;
+export const CustomLink = () => <RouterSampleCustomLink />;
+export const CodeSplit = () => <RouterSampleCodeSplit />;
 

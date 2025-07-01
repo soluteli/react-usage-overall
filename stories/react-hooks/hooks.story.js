@@ -1,17 +1,17 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import StateHookSample from './stateHook';
+import EffectHookSample from './EffectHook';
+// import Deeplearn01 from './deeplearn-01';
+import RefHook from './refHook';
+import Hover from './Hover.jsx';
 
-import StateHookSample from './stateHook'
-import EffectHookSample from './EffectHook'
-// import Deeplearn01 from './deeplearn-01'
-import RefHook from './refHook'
+export default {
+  title: 'React-Hooks',
+};
 
-import Hover from "./Hover.jsx";
-
-storiesOf("React-Hooks", module)
-  .add("useState", () => <StateHookSample />)
-  .add("useEffect", () => <EffectHookSample />)
-  // .add("deeplearn01", () => <Deeplearn01 />)
-  .add("useOwnRef", () => <RefHook />)
-  .add("hover", () => <Hover />)
+export const UseState = () => <StateHookSample />;
+export const UseEffect = () => <EffectHookSample />;
+// export const Deeplearn01 = () => <Deeplearn01 />;
+export const UseOwnRef = () => <RefHook />;
+export const HoverStory = () => <Hover />;
   

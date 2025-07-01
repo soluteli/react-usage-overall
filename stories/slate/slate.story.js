@@ -1,21 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+import BasicSample from './basic';
+import PluginSample from './plugins';
+import HtmlSample from './html';
+import HighlightSample from './code-highlight';
 
-import BasicSample from './basic'
-import PluginSample from './plugins'
-import HtmlSample from './html'
-import HighlightSample from './code-highlight'
+export default {
+  title: 'slate',
+};
 
-storiesOf('slate', module)
-  .add('basic', () => (
-    <BasicSample />
-  ))
-  .add('plugin', () => (
-    <PluginSample />
-  ))
-  .add('html', () => (
-    <HtmlSample />
-  ))
-  .add('highlight', () => (
-    <HighlightSample />
-  ))
+export const Basic = () => <BasicSample />;
+export const Plugin = () => <PluginSample />;
+export const Html = () => <HtmlSample />;
+export const Highlight = () => <HighlightSample />;
