@@ -7,4 +7,3 @@ export default {
 
 export const InterceptorOrder = () => <AxiosInterceptorDemo />;
 export const InterceptorRequestErrorOrder = () => <AxiosInterceptorRequestErrorDemo />;
-

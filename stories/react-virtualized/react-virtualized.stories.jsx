@@ -8,5 +8,3 @@ export default {
 
 export const Collection = () => <CollectionSample />;
 export const Grid = () => <GridSample />;
-
-

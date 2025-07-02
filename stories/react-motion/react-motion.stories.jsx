@@ -10,5 +10,3 @@ export default {
 export const Basic = () => <BaisicMotionSample />;
 export const StaggeredMotionStory = () => <StaggeredMotion />;
 export const TransitionMotionStory = () => <TransitionMotion />;
-
-

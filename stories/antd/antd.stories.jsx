@@ -10,4 +10,3 @@ export default {
 export const CustomFormItem = () => <MyFormItemSample />;
 export const SimpleSelectStory = () => <SimpleSelect />;
 export const VirtualScrollSelect = () => <VSelect />;
-

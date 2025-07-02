@@ -10,4 +10,3 @@ export default {
 export const Basic = () => <BasicDemo />;
 export const RenderProps = () => <RenderPropsDemo />;
 export const Dynamic = () => <DynamicDemo />;
-

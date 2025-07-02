@@ -10,4 +10,3 @@ export default {
 export const Basic = () => <RouterSample />;
 export const CustomLink = () => <RouterSampleCustomLink />;
 export const CodeSplit = () => <RouterSampleCodeSplit />;
-
